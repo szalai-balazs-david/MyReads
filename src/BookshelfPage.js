@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-class BookshelfPage extends React.Component {
+class BookshelfPage extends Component {
   render(){
     return (
       <div className="list-books">
