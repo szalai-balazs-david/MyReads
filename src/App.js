@@ -3,6 +3,7 @@ import React from 'react'
 import './App.css'
 import {Route, Link} from 'react-router-dom'
 import SearchPage from './SearchPage'
+import BookshelfPage from './BookshelfPage'
 
 class BooksApp extends React.Component {
   state = {
@@ -17,7 +18,8 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route exact path='/' render={() => (
+      <Route exact path='/' component={BookshelfPage} />
+        <Route exact path='/2' render={() => (
           <div className="list-books">
           <div className="list-books-title">
             <h1>MyReads</h1>
