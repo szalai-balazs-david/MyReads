@@ -2,24 +2,10 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Bookshelf from './Bookshelf'
 
-const shelves = [
-  {
-    id: 'currentlyReading',
-    name: 'Currently Reading'
-  },
-  {
-    id: 'wantToRead',
-    name: 'Want to Read'
-  },
-  {
-    id: 'read',
-    name: 'Read'
-  },
-]
-
 class BookshelfPage extends Component {
   render(){
     const {books} = this.props
+    const shelves = Array.from(new Set(books.map(book => book.shelf)))
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -28,7 +14,7 @@ class BookshelfPage extends Component {
         <div className="list-books-content">
           <div>
             {shelves.map(shelf => (
-              <Bookshelf key={shelf.id} books={books} shelfId={shelf.id} shelfName={shelf.name} />
+              <Bookshelf key={shelf} books={books} shelfId={shelf} />
             ))}
           </div>
         </div>
