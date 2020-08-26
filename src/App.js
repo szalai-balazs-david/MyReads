@@ -2,6 +2,7 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import {Route, Link} from 'react-router-dom'
+import SearchPage from './SearchPage'
 
 class BooksApp extends React.Component {
   state = {
@@ -180,7 +181,8 @@ class BooksApp extends React.Component {
           </Link>
         </div>
         )} />
-        <Route path='/search' render={() => (
+        <Route exact path='/search' component={SearchPage} />
+        <Route path='/search2' render={() => (
           <div className="search-books">
             <div className="search-books-bar">
               <Link 
