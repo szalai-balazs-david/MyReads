@@ -1,6 +1,9 @@
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course.
+The goal of this project is to allow users to categorize books they are interested in, and move them along shelves such as 'Currently Reading" / 'Want to Read' / 'Read'. 
+The user is also allowed to find new books from the library and add them to their shelves.
+The library is a backend server provided by Uadcity.
 
 ## Install and Run
 
@@ -79,7 +82,3 @@ search(query)
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
