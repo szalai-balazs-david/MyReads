@@ -2,6 +2,7 @@ import React from 'react'
 
 function Book(props){
   const {book, shelf, onShelfChange} = props
+  console.log(book)
   return (
     <div className="book">
       <div className="book-top">
@@ -19,7 +20,7 @@ function Book(props){
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.author ? book.author : 'Unknown'}</div>
+      <div className="book-authors">{book.authors ? book.authors : 'Unknown'}</div>
     </div>
   )
 }
