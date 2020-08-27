@@ -30,10 +30,6 @@ class SearchPage extends Component {
     })
   }
 
-  onShelfChange = (book, newShelf) => {
-    BooksAPI.update(book, newShelf)
-  }
-
   render(){
     return (
       <div className="search-books">
@@ -69,8 +65,8 @@ class SearchPage extends Component {
                 <Book 
                   key={book.id}
                   book={book}
-                  shelf={'none'}
-                  onShelfChange={this.onShelfChange}
+                  shelf={this.props.books.some(x => x.id === book.id) ? this.props.books.find(x => x.id === book.id).shelf : 'none'}
+                  onShelfChange={this.props.onShelfChange}
                 />
               ))}
           </ol>

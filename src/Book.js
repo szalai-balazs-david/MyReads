@@ -2,7 +2,6 @@ import React from 'react'
 
 function Book(props){
   const {book, shelf, onShelfChange} = props
-  console.log(book)
   return (
     <div className="book">
       <div className="book-top">
