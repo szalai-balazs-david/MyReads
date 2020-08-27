@@ -3,7 +3,7 @@ import Book from './Book'
 import * as utils from './utils'
 
 function Bookshelf(props){
-  const {books, shelfId} = props
+  const {books, shelfId, onShelfChange} = props
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{utils.camelCase2SentenceCase(shelfId)}</h2>
@@ -14,10 +14,9 @@ function Bookshelf(props){
             .map(book => (
               <Book 
                 key={book.id}
-                image={book.imageLinks.thumbnail}
-                title={book.title}
-                author={book.author}
+                book={book}
                 shelf={shelfId}
+                onShelfChange={onShelfChange}
               />
             ))}
         </ol>

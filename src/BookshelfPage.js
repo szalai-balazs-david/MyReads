@@ -1,10 +1,34 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import * as BooksAPI from './BooksAPI';
 import Bookshelf from './Bookshelf'
 
 class BookshelfPage extends Component {
+  state = {
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll()
+    .then((books) => {
+      this.setState(() => ({
+        books
+      }))
+    })
+  }
+
+  onShelfChange = (book, newShelf) => {
+    BooksAPI.update(book, newShelf)
+    .then(res => BooksAPI.getAll())
+    .then((books) => {
+      this.setState(() => ({
+        books
+      }))
+    })
+  }
+
   render(){
-    const {books} = this.props
+    const books = this.state.books
     const shelves = Array.from(new Set(books.map(book => book.shelf)))
     return (
       <div className="list-books">
@@ -14,7 +38,7 @@ class BookshelfPage extends Component {
         <div className="list-books-content">
           <div>
             {shelves.map(shelf => (
-              <Bookshelf key={shelf} books={books} shelfId={shelf} />
+              <Bookshelf key={shelf} books={books} shelfId={shelf} onShelfChange={this.onShelfChange} />
             ))}
           </div>
         </div>
